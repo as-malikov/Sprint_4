@@ -7,6 +7,7 @@ public class MainConstants {
             ".//button[contains(@class, 'Header_Link')]");
     public static final By ORDER_NUMBER_INPYT = By.xpath(
             ".//input[contains(@type, 'text')]");
+    public static final By COOKIE_BUTTON = By.xpath(".//button[contains(@class,'App_CookieButton')]");
     public static final String FAQ_QUESTION_PATTERN = ".//div[contains(@id, 'accordion__heading') and (contains(text(), '%s'))]";
     public static final String FAQ_ANSWER_PATTERN = ".//div[contains(@class,'accordion__panel') and not(@hidden)]/p[contains(text(),'%s')]";
     public static final String HOW_MUCH_COST_QUESTION = "Сколько это стоит? И как оплатить?";

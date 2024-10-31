@@ -38,6 +38,7 @@ public class CheckFAQQuestionTest extends BaseUITest {
     public void FAQQuestionsTest() {
         MainPage mainPage = new MainPage(driver);
         mainPage.openMainPage();
+        mainPage.cookiesClick();
         mainPage.clickFAQQuestion(question);
         assertEquals("Должен отобразить ответ на вопрос в аккардион панели: ", result, mainPage.findFAQAnswer(answer));
     }

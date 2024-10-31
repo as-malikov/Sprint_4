@@ -27,11 +27,13 @@ public class BaseUITest {
 
     public void initChrome() {
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("start-maximized");
         driver = new ChromeDriver(options);
     }
 
     public void initFirefox() {
         FirefoxOptions options = new FirefoxOptions();
+        options.addArguments("start-maximized");
         driver = new FirefoxDriver(options);
     }
 }

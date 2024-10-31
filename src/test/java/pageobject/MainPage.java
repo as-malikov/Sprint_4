@@ -21,6 +21,12 @@ public class MainPage {
         return this;
     }
 
+    public void cookiesClick() {
+        if (driver.findElement(COOKIE_BUTTON).isDisplayed()) {
+            driver.findElement(COOKIE_BUTTON).click();
+        }
+    }
+
     public void statusOrderButtonClick() {
         new WebDriverWait(driver, Duration.ofSeconds(3)).
                 until(ExpectedConditions.elementToBeClickable(STATUS_ORDER_BUTTON));

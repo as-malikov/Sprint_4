@@ -14,6 +14,7 @@ public class CreateOrderInHeaderTest extends BaseUITest {
     public void datePickerTest() {
         MainPage mainPage = new MainPage(driver);
         mainPage.openMainPage();
+        mainPage.cookiesClick();
         mainPage.headerOrderButtonClick();
 
         OrderPage orderPage = new OrderPage(driver);
