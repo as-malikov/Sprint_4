@@ -8,6 +8,7 @@ public class MainConstants {
     public static final By ORDER_NUMBER_INPYT = By.xpath(
             ".//input[contains(@type, 'text')]");
     public static final String FAQ_QUESTION_PATTERN = ".//div[contains(@id, 'accordion__heading') and (contains(text(), '%s'))]";
+    public static final String FAQ_ANSWER_PATTERN = ".//div[contains(@class,'accordion__panel') and not(@hidden)]/p[contains(text(),'%s')]";
     public static final String HOW_MUCH_COST_QUESTION = "Сколько это стоит? И как оплатить?";
     public static final String HOW_MUCH_COST_ANSWER = "Сутки — 400 рублей. Оплата курьеру — наличными или картой.";
     public static final String WANT_SOME_SCOOTER_QUESTION = "Хочу сразу несколько самокатов! Так можно?";
@@ -33,5 +34,4 @@ public class MainConstants {
             ".//div[contains(@class, 'Header_Nav')]/button[contains(@class,'Button_Button')]");
     public static By BODY_ORDER_BUTTON = By.xpath(
             ".//div[contains(@class, 'Home_FinishButton')]/button[contains(@class,'Button_Button')]");
-
 }

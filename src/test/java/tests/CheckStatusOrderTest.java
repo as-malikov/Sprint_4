@@ -5,22 +5,20 @@ import org.junit.Test;
 import pageobject.MainPage;
 import pageobject.TrackPage;
 
-public class CheckStatusOrderTest extends BaseUITest {
+import static Constants.OrderConstants.NUMBER_ORDER;
 
-    private final String numberOrder = "45654654";
+public class CheckStatusOrderTest extends BaseUITest {
 
     @Test
     public void checkOrderStatusNotExistTest() {
         MainPage mainPage = new MainPage(driver);
         mainPage.openMainPage();
         mainPage.statusOrderButtonClick();
-        mainPage.setOrderNumberInput(numberOrder);
+        mainPage.setOrderNumberInput(NUMBER_ORDER);
         mainPage.goButtonClick();
 
         TrackPage trackPage = new TrackPage(driver);
         boolean isDisplayedNotFoundOrderImg = trackPage.isDisplayedNotFoundOrderImg();
         Assert.assertTrue("Должен возвращать True если найден notFoundImg: ", isDisplayedNotFoundOrderImg);
     }
-
-
 }

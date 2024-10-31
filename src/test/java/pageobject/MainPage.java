@@ -1,7 +1,6 @@
 package pageobject;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -48,11 +47,22 @@ public class MainPage {
     }
 
     public void clickFAQQuestion(String questionMessage) {
-        String questionLocator = String.format(FAQ_QUESTION_PATTERN, questionMessage);
-        System.out.println(questionLocator);
-        By questionXPath = By.xpath(questionLocator);
+        By questionLocator = By.xpath(String.format(FAQ_QUESTION_PATTERN, questionMessage));
         new WebDriverWait(driver, Duration.ofSeconds(3)).
-                until(ExpectedConditions.elementToBeClickable(questionXPath));
-        driver.findElement(questionXPath).click();
+                until(ExpectedConditions.elementToBeClickable(questionLocator));
+        WebElement questionElement = driver.findElement(questionLocator);
+        scrollToElement(questionElement);
+        questionElement.click();
+    }
+
+    public boolean findFAQAnswer(String answerMessage) {
+        String answerLocator = String.format(FAQ_ANSWER_PATTERN, answerMessage);
+        new WebDriverWait(driver, Duration.ofSeconds(3)).
+                until(ExpectedConditions.visibilityOfElementLocated(By.xpath(answerLocator)));
+        return driver.findElement(By.xpath(answerLocator)).isDisplayed();
+    }
+
+    private void scrollToElement(WebElement element) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
     }
 }

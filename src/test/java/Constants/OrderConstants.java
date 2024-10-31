@@ -6,6 +6,7 @@ public class OrderConstants {
 
     public static final String ORDER_PAGE_URL = "https://qa-scooter.praktikum-services.ru/order";
 
+    public static final String NUMBER_ORDER = "45654654";
     public static final By NAME_INPUT = By.xpath(".//div[contains(@class, 'Input_InputContainer')]" +
             "/input[contains(@placeholder, '* Имя')]");
     public static final By SURNAME_INPUT = By.xpath(".//div[contains(@class, 'Input_InputContainer')]" +
@@ -25,6 +26,6 @@ public class OrderConstants {
     public static final String NAME = "Роман";
     public static final String SURNAME = "Самокатов";
     public static final String ADDRESS = "Красный проспект, 99";
-    public static final String METRO_STATION = "Чистые пруды";
+    public static final String METRO_STATION = "Бульвар Рокоссовского";
     public static final String PHONE_NUMBER = "89239232323";
 }
