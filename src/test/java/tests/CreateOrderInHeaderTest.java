@@ -11,7 +11,7 @@ import static Constants.OrderConstants.*;
 public class CreateOrderInHeaderTest extends BaseUITest {
 
     @Test
-    public void datePickerTest() {
+    public void createOrderHeaderButtonTest() {
         MainPage mainPage = new MainPage(driver);
         mainPage.openMainPage();
         mainPage.cookiesClick();
@@ -27,5 +27,18 @@ public class CreateOrderInHeaderTest extends BaseUITest {
         orderPage.orderNextButtonClick();
 
         orderPage.selectedDeliveryDate(deliveryDate);
+        orderPage.selectRentDays(THREE_DAYS);
+        orderPage.selectCollorScooter(COLLOR);
+        orderPage.descriptionOrderInput(DESCRIPtION_ORDER);
+        orderPage.finishOrderButtonClick();
+        orderPage.yesButtonClick();
+    }
+
+    @Test
+    public void createOrderBodyButtonTest() {
+        MainPage mainPage = new MainPage(driver);
+        mainPage.openMainPage();
+        mainPage.cookiesClick();
+        mainPage.bodyOrderButtonClick();
     }
 }

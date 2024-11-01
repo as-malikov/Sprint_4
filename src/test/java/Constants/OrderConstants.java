@@ -22,6 +22,20 @@ public class OrderConstants {
             "'* Когда привезти самокат')]");
     public static final By DELIVERY_DATE_DATA_PICKER = By.xpath(
             ".//div[contains(@class, 'react-datepicker__day--selected')]");
+    public static final By RENT_ORDER_DIV = By.xpath(".//div[contains(@class,'Dropdown-placeholder')]");
+    public static final String RENT_DAYS_DIV = ".//div[contains(@class,'Dropdown-option') " +
+            "and contains(text(),'%s')]";
+    public static String THREE_DAYS = "трое суток";
+    public static final String COLLOR_ORDER_CHECKBOX_INPUT = ".//label[contains(text(), " +
+            "'%s')]/input[contains(@class, 'Checkbox_Input')]";
+    public static final String COLLOR = "серая безысходность";
+    public static final String DESCRIPtION_ORDER = "Заберу у третьего подъезда";
+    public static final By DESCRIPTION_FOR_COURIER_INPUT = By.xpath(".//input[contains(@class, " +
+            "'Input_Responsible') and contains(@placeholder, 'Комментарий для курьера')]");
+    public static final By FINAL_ORDER_BUTTON = By.xpath(".//button[contains(@class,'Button_Middle') " +
+            "and contains(text(),'Заказать')]");
+    public static final By YES_ORDER_BUTTON = By.xpath(".//button[contains(@class,'Button_Button') " +
+            "and contains(text(),'Да')]");
 
     public static final String NAME = "Роман";
     public static final String SURNAME = "Самокатов";

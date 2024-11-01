@@ -52,6 +52,14 @@ public class MainPage {
         driver.findElement(HEADER_ORDER_BUTTON).click();
     }
 
+    public void bodyOrderButtonClick() {
+        new WebDriverWait(driver, Duration.ofSeconds(3)).
+                until(ExpectedConditions.elementToBeClickable(BODY_ORDER_BUTTON));
+        WebElement orderButtonElement = driver.findElement(BODY_ORDER_BUTTON);
+        scrollToElement(orderButtonElement);
+        orderButtonElement.click();
+    }
+
     public void clickFAQQuestion(String questionMessage) {
         By questionLocator = By.xpath(String.format(FAQ_QUESTION_PATTERN, questionMessage));
         new WebDriverWait(driver, Duration.ofSeconds(3)).
