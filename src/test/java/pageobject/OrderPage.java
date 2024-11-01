@@ -96,4 +96,8 @@ public class OrderPage {
                 until(ExpectedConditions.elementToBeClickable(YES_ORDER_BUTTON));
         driver.findElement(YES_ORDER_BUTTON).click();
     }
+
+    public boolean isOrderDone() {
+        return driver.findElement(DONE_STATUS_ORDER_DIV).isDisplayed();
+    }
 }

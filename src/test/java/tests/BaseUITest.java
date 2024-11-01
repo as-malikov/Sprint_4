@@ -33,7 +33,7 @@ public class BaseUITest {
 
     public void initFirefox() {
         FirefoxOptions options = new FirefoxOptions();
-        options.addArguments("start-maximized");
         driver = new FirefoxDriver(options);
+        driver.manage().window().maximize();
     }
 }

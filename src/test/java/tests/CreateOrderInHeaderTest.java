@@ -32,6 +32,7 @@ public class CreateOrderInHeaderTest extends BaseUITest {
         orderPage.descriptionOrderInput(DESCRIPtION_ORDER);
         orderPage.finishOrderButtonClick();
         orderPage.yesButtonClick();
+        orderPage.isOrderDone();
     }
 
     @Test
