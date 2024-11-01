@@ -34,12 +34,4 @@ public class CreateOrderWithHeaderButtonTest extends BaseUITest {
         boolean actual = orderPage.isOrderDone();
         assertEquals("Должен вернуть результат оформления заказа: ", true, actual);
     }
-
-    @Test
-    public void createOrderBodyButtonTest() {
-        MainPage mainPage = new MainPage(driver);
-        mainPage.openMainPage();
-        mainPage.cookiesClick();
-        mainPage.bodyOrderButtonClick();
-    }
 }
