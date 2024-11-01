@@ -38,9 +38,13 @@ public class OrderConstants {
             "and contains(text(),'Да')]");
     public static final By DONE_STATUS_ORDER_DIV = By.xpath(".//div[contains(@class, 'Order_ModalHeader') " +
             "and contains(text(),'Заказ оформлен')]");
+    public static final int ONE_DAY = 1;
+    public static final int FIVE_SECONDS_ORDER = 5;
+
     public static final String NAME = "Роман";
     public static final String SURNAME = "Самокатов";
     public static final String ADDRESS = "Красный проспект, 99";
     public static final String METRO_STATION = "Бульвар Рокоссовского";
     public static final String PHONE_NUMBER = "89239232323";
+
 }

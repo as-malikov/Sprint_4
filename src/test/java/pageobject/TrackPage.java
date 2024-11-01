@@ -1,6 +1,5 @@
 package pageobject;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -23,7 +22,7 @@ public class TrackPage {
     }
 
     public boolean isDisplayedNotFoundOrderImg() {
-        new WebDriverWait(driver, Duration.ofSeconds(3)).
+        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS_TRACK)).
                 until(ExpectedConditions.visibilityOfElementLocated(NOT_FOUND_IMG));
         return driver.findElement(NOT_FOUND_IMG).isDisplayed();
     }

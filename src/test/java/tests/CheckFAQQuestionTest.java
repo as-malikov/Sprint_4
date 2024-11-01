@@ -21,7 +21,7 @@ public class CheckFAQQuestionTest extends BaseUITest {
     }
 
     @Parameterized.Parameters
-    public static Object[][] getCredentials() {
+    public static Object[][] getQuestionAnswer() {
         return new Object[][]{
                 {HOW_MUCH_COST_QUESTION, HOW_MUCH_COST_ANSWER, true},
                 {WANT_SOME_SCOOTER_QUESTION, WANT_SOME_SCOOTER_ANSWER, true},
@@ -40,6 +40,7 @@ public class CheckFAQQuestionTest extends BaseUITest {
         mainPage.openMainPage();
         mainPage.cookiesClick();
         mainPage.clickFAQQuestion(question);
-        assertEquals("Должен отобразить ответ на вопрос в аккардион панели: ", result, mainPage.findFAQAnswer(answer));
+        assertEquals("Должен отобразить ответ на вопрос в аккардион панели: ",
+                result, mainPage.findFAQAnswer(answer));
     }
 }

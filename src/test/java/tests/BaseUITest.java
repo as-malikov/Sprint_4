@@ -17,7 +17,7 @@ public class BaseUITest {
     @Before
     public void startUp() {
         initChrome();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @After

@@ -3,12 +3,11 @@ package tests;
 import org.junit.Test;
 import pageobject.MainPage;
 import pageobject.OrderPage;
-
 import java.time.LocalDate;
-
 import static Constants.OrderConstants.*;
+import static org.junit.Assert.assertEquals;
 
-public class CreateOrderInHeaderTest extends BaseUITest {
+public class CreateOrderWithHeaderButtonTest extends BaseUITest {
 
     @Test
     public void createOrderHeaderButtonTest() {
@@ -18,7 +17,7 @@ public class CreateOrderInHeaderTest extends BaseUITest {
         mainPage.headerOrderButtonClick();
 
         OrderPage orderPage = new OrderPage(driver);
-        String deliveryDate = LocalDate.now().plusDays(1).toString();
+        String deliveryDate = LocalDate.now().plusDays(ONE_DAY).toString();
         orderPage.userNameInput(NAME);
         orderPage.userSurnameInput(SURNAME);
         orderPage.userAddressInput(ADDRESS);
@@ -32,7 +31,8 @@ public class CreateOrderInHeaderTest extends BaseUITest {
         orderPage.descriptionOrderInput(DESCRIPtION_ORDER);
         orderPage.finishOrderButtonClick();
         orderPage.yesButtonClick();
-        orderPage.isOrderDone();
+        boolean actual = orderPage.isOrderDone();
+        assertEquals("Должен вернуть результат оформления заказа: ", true, actual);
     }
 
     @Test
