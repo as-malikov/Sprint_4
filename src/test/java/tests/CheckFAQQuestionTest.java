@@ -5,8 +5,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import pageobject.MainPage;
 
-import static Constants.MainConstants.*;
 import static org.junit.Assert.assertEquals;
+import static pageobject.Constants.*;
 
 @RunWith(Parameterized.class)
 public class CheckFAQQuestionTest extends BaseUITest {
@@ -35,7 +35,7 @@ public class CheckFAQQuestionTest extends BaseUITest {
     }
 
     @Test
-    public void FAQQuestionsTest() {
+    public void faqQuestionsTest() {
         MainPage mainPage = new MainPage(driver);
         mainPage.openMainPage();
         mainPage.cookiesClick();

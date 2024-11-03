@@ -5,11 +5,44 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static Constants.OrderConstants.*;
+import static pageobject.Constants.FIVE_SECONDS;
 
 import java.time.Duration;
 
 public class OrderPage {
+
+    public static final String ORDER_PAGE_URL = "https://qa-scooter.praktikum-services.ru/order";
+
+    public static final By nameInput = By.xpath(".//div[contains(@class, 'Input_InputContainer')]" +
+            "/input[contains(@placeholder, '* Имя')]");
+    public static final By surnameInput = By.xpath(".//div[contains(@class, 'Input_InputContainer')]" +
+            "/input[contains(@placeholder, '* Фамилия')]");
+    public static final By addressInput = By.xpath(".//div[contains(@class, 'Input_InputContainer')]" +
+            "/input[contains(@placeholder, '* Адрес: куда привезти заказ')]");
+    public static final String metroStationInput = ".//div[contains(text(),'%s')]";
+    public static final By selectMetroStationInput = By.xpath(".//input[contains(@class, 'select-search__input')]");
+    public static final By phoneNumberInput = By.xpath(".//div[contains(@class, 'Input_Input')]" +
+            "/input[contains(@placeholder, '* Телефон: на него позвонит курьер')]");
+    public static final By orderNextInput = By.xpath(".//div[contains(@class, 'Order_NextButton')]/button");
+    public static final By deliveryDateInput = By.xpath(".//input[contains(@placeholder," +
+            "'* Когда привезти самокат')]");
+    public static final By deliveryDateDataPicker = By.xpath(
+            ".//div[contains(@class, 'react-datepicker__day--selected')]");
+    public static final By rentOrderDiv = By.xpath(".//div[contains(@class,'Dropdown-placeholder')]");
+    public static final String rentDaysDiv = ".//div[contains(@class,'Dropdown-option') " +
+            "and contains(text(),'%s')]";
+    public static String THREE_DAYS = "трое суток";
+    public static final String colorOrderCheckboxInput = ".//label[contains(text(), " +
+            "'%s')]/input[contains(@class, 'Checkbox_Input')]";
+
+    public static final By descriptionForCourierInput = By.xpath(".//input[contains(@class, " +
+            "'Input_Responsible') and contains(@placeholder, 'Комментарий для курьера')]");
+    public static final By finalOrderButton = By.xpath(".//button[contains(@class,'Button_Middle') " +
+            "and contains(text(),'Заказать')]");
+    public static final By yesOrderButton = By.xpath(".//button[contains(@class,'Button_Button') " +
+            "and contains(text(),'Да')]");
+    public static final By doneStatusOrderDiv = By.xpath(".//div[contains(@class, 'Order_ModalHeader') " +
+            "and contains(text(),'Заказ оформлен')]");
 
     protected WebDriver driver;
 
@@ -18,86 +51,86 @@ public class OrderPage {
     }
 
     public void userNameInput(String name) {
-        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS_ORDER)).
-                until(ExpectedConditions.visibilityOfElementLocated(NAME_INPUT));
-        driver.findElement(NAME_INPUT).sendKeys(name);
+        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS)).
+                until(ExpectedConditions.visibilityOfElementLocated(nameInput));
+        driver.findElement(nameInput).sendKeys(name);
     }
 
     public void userSurnameInput(String surname) {
-        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS_ORDER)).
-                until(ExpectedConditions.visibilityOfElementLocated(SURNAME_INPUT));
-        driver.findElement(SURNAME_INPUT).sendKeys(surname);
+        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS)).
+                until(ExpectedConditions.visibilityOfElementLocated(surnameInput));
+        driver.findElement(surnameInput).sendKeys(surname);
     }
 
     public void userAddressInput(String address) {
-        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS_ORDER)).
-                until(ExpectedConditions.visibilityOfElementLocated(ADDRESS_INPUT));
-        driver.findElement(ADDRESS_INPUT).sendKeys(address);
+        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS)).
+                until(ExpectedConditions.visibilityOfElementLocated(addressInput));
+        driver.findElement(addressInput).sendKeys(address);
     }
 
     public void userMetroStationInput(String metroStation) {
-        driver.findElement(SELECT_METRO_STATION_INPUT).click();
-        By metroStationWithNameInput = By.xpath(String.format(METRO_STATION_DIV, metroStation));
-        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS_ORDER)).
+        driver.findElement(selectMetroStationInput).click();
+        By metroStationWithNameInput = By.xpath(String.format(metroStationInput, metroStation));
+        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS)).
                 until(ExpectedConditions.visibilityOfElementLocated(metroStationWithNameInput));
         driver.findElement(metroStationWithNameInput).click();
     }
 
     public void userPhoneNumberInput(String phoneNumber) {
-        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS_ORDER)).
-                until(ExpectedConditions.visibilityOfElementLocated(PHONE_NUMBER_INPUT));
-        driver.findElement(PHONE_NUMBER_INPUT).sendKeys(phoneNumber);
+        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS)).
+                until(ExpectedConditions.visibilityOfElementLocated(phoneNumberInput));
+        driver.findElement(phoneNumberInput).sendKeys(phoneNumber);
     }
 
     public void orderNextButtonClick() {
-        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS_ORDER)).
-                until(ExpectedConditions.visibilityOfElementLocated(ORDER_NEXT_BUTTON));
-        driver.findElement(ORDER_NEXT_BUTTON).click();
+        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS)).
+                until(ExpectedConditions.visibilityOfElementLocated(orderNextInput));
+        driver.findElement(orderNextInput).click();
     }
 
     public void selectedDeliveryDate(String date) {
-        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS_ORDER)).
-                until(ExpectedConditions.visibilityOfElementLocated(DELIVERY_DATE_INPUT));
-        driver.findElement(DELIVERY_DATE_INPUT).sendKeys(date);
-        driver.findElement(DELIVERY_DATE_DATA_PICKER).click();
+        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS)).
+                until(ExpectedConditions.visibilityOfElementLocated(deliveryDateInput));
+        driver.findElement(deliveryDateInput).sendKeys(date);
+        driver.findElement(deliveryDateDataPicker).click();
     }
 
     public void selectRentDays(String daysRent) {
-        String rentDaysLocator = String.format(RENT_DAYS_DIV, daysRent);
-        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS_ORDER)).
-                until(ExpectedConditions.visibilityOfElementLocated(RENT_ORDER_DIV));
-        driver.findElement(RENT_ORDER_DIV).click();
-        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS_ORDER)).
+        String rentDaysLocator = String.format(rentDaysDiv, daysRent);
+        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS)).
+                until(ExpectedConditions.visibilityOfElementLocated(rentOrderDiv));
+        driver.findElement(rentOrderDiv).click();
+        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS)).
                 until(ExpectedConditions.elementToBeClickable(By.xpath(rentDaysLocator)));
         driver.findElement(By.xpath(rentDaysLocator)).click();
     }
 
     public void selectCollorScooter(String collor) {
-        String collorLocator = String.format(COLLOR_ORDER_CHECKBOX_INPUT, collor);
-        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS_ORDER)).
+        String collorLocator = String.format(colorOrderCheckboxInput, collor);
+        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS)).
                 until(ExpectedConditions.elementToBeClickable(By.xpath(collorLocator)));
         driver.findElement(By.xpath(collorLocator)).click();
     }
 
     public void descriptionOrderInput(String description) {
-        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS_ORDER)).
-                until(ExpectedConditions.visibilityOfElementLocated(DESCRIPTION_FOR_COURIER_INPUT));
-        driver.findElement(DESCRIPTION_FOR_COURIER_INPUT).sendKeys(description);
+        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS)).
+                until(ExpectedConditions.visibilityOfElementLocated(descriptionForCourierInput));
+        driver.findElement(descriptionForCourierInput).sendKeys(description);
     }
 
     public void finishOrderButtonClick() {
-        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS_ORDER)).
-                until(ExpectedConditions.visibilityOfElementLocated(FINAL_ORDER_BUTTON));
-        driver.findElement(FINAL_ORDER_BUTTON).click();
+        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS)).
+                until(ExpectedConditions.visibilityOfElementLocated(finalOrderButton));
+        driver.findElement(finalOrderButton).click();
     }
 
     public void yesButtonClick() {
-        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS_ORDER)).
-                until(ExpectedConditions.elementToBeClickable(YES_ORDER_BUTTON));
-        driver.findElement(YES_ORDER_BUTTON).click();
+        new WebDriverWait(driver, Duration.ofSeconds(FIVE_SECONDS)).
+                until(ExpectedConditions.elementToBeClickable(yesOrderButton));
+        driver.findElement(yesOrderButton).click();
     }
 
     public boolean isOrderDone() {
-        return driver.findElement(DONE_STATUS_ORDER_DIV).isDisplayed();
+        return driver.findElement(doneStatusOrderDiv).isDisplayed();
     }
 }

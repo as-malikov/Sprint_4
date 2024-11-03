@@ -3,9 +3,12 @@ package tests;
 import org.junit.Test;
 import pageobject.MainPage;
 import pageobject.OrderPage;
+
 import java.time.LocalDate;
-import static Constants.OrderConstants.*;
+
 import static org.junit.Assert.assertEquals;
+import static pageobject.Constants.*;
+import static pageobject.OrderPage.THREE_DAYS;
 
 public class CreateOrderWithHeaderButtonTest extends BaseUITest {
 

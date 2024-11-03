@@ -5,7 +5,7 @@ import org.junit.Test;
 import pageobject.MainPage;
 import pageobject.TrackPage;
 
-import static Constants.OrderConstants.NUMBER_ORDER;
+import static pageobject.Constants.NUMBER_ORDER;
 
 public class CheckStatusOrderTest extends BaseUITest {
 

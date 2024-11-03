@@ -1,17 +1,6 @@
-package Constants;
+package pageobject;
 
-import org.openqa.selenium.By;
-
-public class MainConstants {
-    public static final By STATUS_ORDER_BUTTON = By.xpath(
-            ".//button[contains(@class, 'Header_Link')]");
-    public static final By ORDER_NUMBER_INPYT = By.xpath(
-            ".//input[contains(@type, 'text')]");
-    public static final By COOKIE_BUTTON = By.xpath(".//button[contains(@class,'App_CookieButton')]");
-    public static final String FAQ_QUESTION_PATTERN = ".//div[contains(@id, 'accordion__heading') " +
-            "and (contains(text(), '%s'))]";
-    public static final String FAQ_ANSWER_PATTERN = ".//div[contains(@class,'accordion__panel') " +
-            "and not(@hidden)]/p[contains(text(),'%s')]";
+public class Constants {
     public static final String HOW_MUCH_COST_QUESTION = "Сколько это стоит? И как оплатить?";
     public static final String HOW_MUCH_COST_ANSWER = "Сутки — 400 рублей. Оплата курьеру — наличными или картой.";
     public static final String WANT_SOME_SCOOTER_QUESTION = "Хочу сразу несколько самокатов! Так можно?";
@@ -35,12 +24,15 @@ public class MainConstants {
             "объяснительной записки тоже не попросим. Все же свои.";
     public static final String I_LIVE_FAR_QUESTION = "Я жизу за МКАДом, привезёте?";
     public static final String I_LIVE_FAR_ANSWER = "Да, обязательно. Всем самокатов! И Москве, и Московской области.";
-    public static String MAIN_PAGE_URL = "https://qa-scooter.praktikum-services.ru/";
-    public static By GO_BUTTON = By.xpath(
-            ".//button[contains(@class, 'Header_Button') and text()='Go!']");
-    public static By HEADER_ORDER_BUTTON = By.xpath(
-            ".//div[contains(@class, 'Header_Nav')]/button[contains(@class,'Button_Button')]");
-    public static By BODY_ORDER_BUTTON = By.xpath(
-            ".//div[contains(@class, 'Home_FinishButton')]/button[contains(@class,'Button_Button')]");
-    public static final int FIVE_SECONDS_MAIN = 5;
+    public static final int FIVE_SECONDS = 5;
+    public static final String NUMBER_ORDER = "45654654";
+    public static final String COLLOR = "серая безысходность";
+    public static final String DESCRIPtION_ORDER = "Заберу у третьего подъезда";
+    public static final int ONE_DAY = 1;
+
+    public static final String NAME = "Роман";
+    public static final String SURNAME = "Самокатов";
+    public static final String ADDRESS = "Красный проспект, 99";
+    public static final String METRO_STATION = "Бульвар Рокоссовского";
+    public static final String PHONE_NUMBER = "89239232323";
 }
